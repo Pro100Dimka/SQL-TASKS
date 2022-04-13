@@ -81,6 +81,12 @@ create table HR_REGIONS
 );
 
 -- Create/Recreate primary, unique and foreign key constraints 
+alter table HR_JOBS
+  add constraint SD primary key (JOB_ID);
+
+alter table HR_EMPLOYEES
+  add constraint FG primary key (EMPLOYEE_ID);
+  
 alter table HR_REGIONS
   add constraint REG primary key (REGION_ID);
 
@@ -99,12 +105,7 @@ alter table HR_JOB_HISTORY
 alter table HR_JOB_HISTORY
   add constraint G foreign key (DEPARTAMENT_ID)
   references HR_DEPARTAMENTS (DEPARTMENT_ID);
-
-alter table HR_JOBS
-  add constraint SD primary key (JOB_ID);
-
-alter table HR_EMPLOYEES
-  add constraint FG primary key (EMPLOYEE_ID);
+  
 alter table HR_EMPLOYEES
   add constraint DF foreign key (JOB_ID)
   references HR_JOBS (JOB_ID);
